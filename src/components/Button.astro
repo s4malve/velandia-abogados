@@ -1,0 +1,37 @@
+---
+import { sizes, variants } from '@/data/button'
+
+interface Props {
+  variant?: keyof typeof variants
+  size?: keyof typeof sizes
+  type?: 'button' | 'submit'
+  href?: string
+  as?: 'button' | 'a'
+  border?: keyof typeof corners
+  onClick?: () => void
+}
+
+const {
+  as = 'button',
+  size = 'md',
+  variant = 'primary',
+  type = 'button',
+  border = 'xl',
+  href,
+  onClick
+} = Astro.props as Props
+
+const className = `w-fit rounded-xl transition-colors rounded-xl py-2 ${variants[variant]} ${sizes[size]}`
+---
+
+{
+  as === 'button' ? (
+    <button type={type} class={className} onclick={`${onClick}`}>
+      <slot />
+    </button>
+  ) : (
+    <a href={href} class={className}>
+      <slot />
+    </a>
+  )
+}
