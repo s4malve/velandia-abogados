@@ -6,4 +6,12 @@
   body {
     @apply p-2;
   }
+
+  .wrapper {
+    @apply grid grid-cols-[repeat(12,1fr)] gap-x-8;
+  }
+
+  .wrapper-container {
+    @apply col-start-2 col-end-12;
+  }
 }
