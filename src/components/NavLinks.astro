@@ -1,0 +1,19 @@
+---
+interface Props {
+  links: Array<{ name: string; path: string }>
+}
+
+const { links } = Astro.props as Props
+---
+
+<ul class='flex items-center justify-center gap-x-6 font-light'>
+  {
+    links.map(({ name, path }) => (
+      <li>
+        <a href={path} class='hover:font-semibold'>
+          {name}
+        </a>
+      </li>
+    ))
+  }
+</ul>
