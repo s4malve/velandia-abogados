@@ -1,0 +1,50 @@
+---
+import Logo from '@/components/Logo.astro'
+import LogoText from '@/components/LogoText.astro'
+import NavLinks from '@/components/NavLinks.astro'
+import Button from '@/components/Button.astro'
+
+import { links } from '@/data/nav'
+
+interface Props {
+  title: string
+  img: string
+  alt: string
+}
+
+const { title, img, alt } = Astro.props as Props
+---
+
+<header class='rounded-xl bg-slate-900 text-slate-100 py-8 w-full wrapper'>
+  <div class='min-h-[88vh] grid grid-rows-[auto_1fr] wrapper-container'>
+    <nav class='flex items-center justify-between'>
+      <a href='/' class='flex items-center w-56 hover:text-slate-200'>
+        <Logo />
+        <LogoText />
+      </a>
+      <NavLinks links={links} />
+      <Button as='a' href='/'>Escríbenos</Button>
+    </nav>
+    <div class='grid grid-cols-[repeat(10,1fr)] gap-x-8 items-center'>
+      <div class='col-start-1 col-end-5 flex flex-col gap-y-4'>
+        <h1 class='font-semibold text-[40px] leading-snug'>
+          {title}
+        </h1>
+        <slot />
+      </div>
+      <figure
+        class='relative before:absolute before:inline-block before:bg-gradient-to-tr before:from-slate-900 before:to-slate-800 before:-z-[1] z-[1] before:rounded-tl-[260px] before:-top-4 before:-left-4 before:w-full before:h-full col-start-6 2xl:col-start-7 col-end-12'
+      >
+        <div
+          class='relative before:absolute before:w-full before:h-full before:bg-slate-900/30'
+        >
+          <img
+            src={img}
+            alt={alt}
+            class='w-full rounded-tl-[196px] min-h-[392px] object-cover'
+          />
+        </div>
+      </figure>
+    </div>
+  </div>
+</header>
