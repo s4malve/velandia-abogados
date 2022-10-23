@@ -16,8 +16,8 @@ interface Props {
 const { title, img, alt } = Astro.props as Props
 ---
 
-<header class='rounded-xl bg-slate-900 text-slate-100 py-8 w-full wrapper'>
-  <div class='min-h-[88vh] grid grid-rows-[auto_1fr] wrapper-container'>
+<header class='rounded-xl bg-slate-900 text-slate-100 w-full parent'>
+  <div class='min-h-[84vh] grid grid-rows-[auto_1fr] parent-container'>
     <nav class='flex items-center justify-between'>
       <a href='/' class='flex items-center w-56 hover:text-slate-200'>
         <Logo />
@@ -26,6 +26,7 @@ const { title, img, alt } = Astro.props as Props
       <NavLinks links={links} />
       <Button as='a' href='/'>Escríbenos</Button>
     </nav>
+    <div class='child'>
       <div class='col-start-1 col-end-5 flex flex-col gap-y-4'>
         <Title as='h1'>
           {title}
