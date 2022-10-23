@@ -5,6 +5,7 @@ import NavLinks from '@/components/NavLinks.astro'
 import Button from '@/components/Button.astro'
 
 import { links } from '@/data/nav'
+import Title from './Title.astro'
 
 interface Props {
   title: string
@@ -25,11 +26,10 @@ const { title, img, alt } = Astro.props as Props
       <NavLinks links={links} />
       <Button as='a' href='/'>Escríbenos</Button>
     </nav>
-    <div class='grid grid-cols-[repeat(10,1fr)] gap-x-8 items-center'>
       <div class='col-start-1 col-end-5 flex flex-col gap-y-4'>
-        <h1 class='font-semibold text-[40px] leading-snug'>
+        <Title as='h1'>
           {title}
-        </h1>
+        </Title>
         <slot />
       </div>
       <figure
