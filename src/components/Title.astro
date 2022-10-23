@@ -1,0 +1,32 @@
+---
+interface Props {
+  as: keyof typeof sizes
+  className?: string
+}
+
+const sizes = {
+  h1: 'text-[40px]',
+  h2: 'text-[32px]',
+  h3: 'text-lg'
+}
+
+const { as = 'h2', className } = Astro.props as Props
+
+const styles = `font-semibold ${sizes[as]} ${className}`
+---
+
+{
+  as === 'h1' ? (
+    <h1 class={styles}>
+      <slot />
+    </h1>
+  ) : as === 'h2' ? (
+    <h2 class={styles}>
+      <slot />
+    </h2>
+  ) : (
+    <h3 class={styles}>
+      <slot />
+    </h3>
+  )
+}
