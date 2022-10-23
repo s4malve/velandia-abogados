@@ -1,0 +1,32 @@
+---
+interface Props {
+  as?: 'p' | 'span'
+  color?: keyof typeof colors
+  className?: string
+}
+
+const colors = {
+  dark: 'text-slate-700',
+  light: 'text-slate-400'
+}
+
+const { as = 'p', color = 'dark', className } = Astro.props as Props
+
+const styles = `${colors[color]}`
+---
+
+{
+  as === 'p' && (
+    <p class={`${styles} ${className}`}>
+      <slot />
+    </p>
+  )
+}
+
+{
+  as == 'span' && (
+    <span class={className}>
+      <slot />
+    </span>
+  )
+}
