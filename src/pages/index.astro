@@ -6,6 +6,9 @@ import Link from '@/components/Link.astro'
 import Button from '@/components/Button.astro'
 import Title from '@/components/Title.astro'
 import Text from '@/components/Text.astro'
+import Card from '@/components/Card.astro'
+import People from '@/components/icons/People.astro'
+import Shield from '@/components/icons/Shield.astro'
 ---
 
 <!DOCTYPE html>
@@ -30,5 +33,43 @@ import Text from '@/components/Text.astro'
       </Text>
       <Button href='/' as='a'>Escríbenos</Button>
     </Header>
+    <section class='parent'>
+      <div class='parent-container flex flex-col gap-y-8'>
+        <div class='child'>
+          <Title as='h1' className='col-start-1 col-end-5'
+            >Protegemos lo que más te importa.</Title
+          >
+          <Text className='col-start-7 col-end-11 2xl:col-end-12'>
+            Haciendo que tu voz sea escuchada, y tus derechos sean protegidos.
+          </Text>
+        </div>
+        <ul class='flex items-center justify-between'>
+          <li>
+            <Card
+              title='Siendo humanos'
+              content='Viendo que detras de cada proceso hay una persona, que quiere hacerce oir.'
+            >
+              <People slot='icon' />
+            </Card>
+          </li>
+          <li>
+            <Card
+              title='Siendo humanos'
+              content='Viendo que detras de cada proceso hay una persona, que quiere hacerce oir.'
+            >
+              <Shield slot='icon' />
+            </Card>
+          </li>
+          <li>
+            <Card
+              title='Siendo humanos'
+              content='Viendo que detras de cada proceso hay una persona, que quiere hacerce oir.'
+            >
+              <People slot='icon' />
+            </Card>
+          </li>
+        </ul>
+      </div>
+    </section>
   </body>
 </html>
