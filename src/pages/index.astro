@@ -114,5 +114,25 @@ import Image from '@/components/Image.astro'
         </div>
       </div>
     </section>
+    <section class='parent overflow-hidden'>
+      <div class='parent-container child rounded-xl bg-slate-900 relative'>
+        <div class='col-start-2 col-end-6 py-14'>
+          <Text as='span' color='light'>Contáctanos</Text>
+          <Title as='h2' className='text-slate-100 mb-6'
+            >¿Qué esperas para tomar el control?</Title
+          >
+          <Button as='a' href=''>Contáctanos</Button>
+        </div>
+        <figure
+          class='col-start-7 col-end-10 lg:col-auto lg:absolute lg:right-24 lg:top-12'
+        >
+          <img
+            src='/chat-example.png'
+            alt=''
+            class='w-full max-w-[287px] object-contain'
+          />
+        </figure>
+      </div>
+    </section>
   </body>
 </html>
