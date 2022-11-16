@@ -26,7 +26,7 @@ import Image from '@/components/Image.astro'
       img='https://images.unsplash.com/photo-1611516818236-8faa056fb659?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
       alt='Family reuned'
     >
-      <Text color='light'>
+      <Text theme='dark'>
         Somos un buffet. Especializado en <Link href='/'
           >derecho de familia</Link
         >. Nuestra misión es ver a cada persona que está detras de cada proceso
@@ -38,7 +38,7 @@ import Image from '@/components/Image.astro'
     <section class='parent'>
       <div class='parent-container flex flex-col gap-y-8'>
         <div class='child'>
-          <Title as='h1' className='col-start-1 col-end-5'
+          <Title as='h1' theme='light' className='col-start-1 col-end-5'
             >Protegemos lo que más te importa.</Title
           >
           <Text className='col-start-7 col-end-11 2xl:col-end-12'>
@@ -50,6 +50,7 @@ import Image from '@/components/Image.astro'
             <Card
               title='Siendo humanos'
               content='Viendo que detras de cada proceso hay una persona, que quiere hacerce oir.'
+              theme={'light'}
             >
               <People slot='icon' />
             </Card>
@@ -117,8 +118,8 @@ import Image from '@/components/Image.astro'
     <section class='parent overflow-hidden'>
       <div class='parent-container child rounded-xl bg-slate-900 relative'>
         <div class='col-start-2 col-end-6 py-14'>
-          <Text as='span' color='light'>Contáctanos</Text>
-          <Title as='h2' className='text-slate-100 mb-6'
+          <Text as='span' theme='dark'>Contáctanos</Text>
+          <Title as='h2' theme='dark' className='text-slate-100 mb-6'
             >¿Qué esperas para tomar el control?</Title
           >
           <Button as='a' href=''>Contáctanos</Button>
