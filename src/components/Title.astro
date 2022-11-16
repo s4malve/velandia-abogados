@@ -2,6 +2,12 @@
 interface Props {
   as: keyof typeof sizes
   className?: string
+  theme?: keyof typeof themes
+}
+
+const themes = {
+  light: 'text-slate-900',
+  dark: 'text-slate-100'
 }
 
 const sizes = {
@@ -10,9 +16,9 @@ const sizes = {
   h3: 'text-lg'
 }
 
-const { as = 'h2', className } = Astro.props as Props
+const { className, theme = 'light', as = 'h2' } = Astro.props as Props
 
-const styles = `font-semibold ${sizes[as]} ${className}`
+const styles = `font-semibold ${sizes[as]} ${themes[theme]} ${className}`
 ---
 
 {
