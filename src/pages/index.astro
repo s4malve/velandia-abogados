@@ -11,6 +11,8 @@ import People from '@/components/icons/People.astro'
 import Shield from '@/components/icons/Shield.astro'
 import GroupAdd from '@/components/icons/GroupAdd.astro'
 import Image from '@/components/Image.astro'
+import buffetData from '@/data/buffet-data'
+import Check from '@/components/icons/Check.astro'
 ---
 
 <!DOCTYPE html>
@@ -115,7 +117,7 @@ import Image from '@/components/Image.astro'
         </div>
       </div>
     </section>
-    <section class='parent overflow-hidden'>
+    <section class='parent overflow-hidden py-0'>
       <div class='parent-container child rounded-xl bg-slate-900 relative'>
         <div class='col-start-2 col-end-6 py-14'>
           <Text as='span' theme='dark'>Contáctanos</Text>
@@ -133,6 +135,35 @@ import Image from '@/components/Image.astro'
             class='w-full max-w-[287px] object-contain'
           />
         </figure>
+      </div>
+    </section>
+    <section class='parent'>
+      <div class='parent-container gap-y-8 grid'>
+        <div class='grid gap-y-2'>
+          <Title as={'h2'}>Que dicen los datos</Title>
+          <Text>¿No estas muy convencido? deja que los datos hablen.</Text>
+        </div>
+
+        <ul class='child items-stretch grid-rows-2 gap-y-6'>
+          {
+            buffetData.map(({ active, className, content }) => {
+              return (
+                <li class={className}>
+                  <Card theme={active ? 'dark' : 'light'} content={content}>
+                    <div
+                      class={`p-3 rounded-full bg-slate-100 w-fit ${
+                        active ? 'text-pink-900' : ''
+                      }`}
+                      slot='icon'
+                    >
+                      <Check />
+                    </div>
+                  </Card>
+                </li>
+              )
+            })
+          }
+        </ul>
       </div>
     </section>
   </body>
