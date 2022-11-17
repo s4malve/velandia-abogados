@@ -17,11 +17,14 @@ import Input from '@/components/Input'
 import Person from '@/components/icons/Person'
 import Gmail from '@/components/icons/Gmail'
 import Typography from '@/components/icons/Typography'
+import Logo from '@/components/Logo.astro'
+import LogoText from '@/components/LogoText.astro'
 
 import buffetData from '@/data/buffet-data'
 import comments from '@/data/comments'
 import contact from '@/data/contact'
 import social from '@/data/social'
+import footer from '@/data/footer'
 ---
 
 <!DOCTYPE html>
@@ -267,5 +270,44 @@ import social from '@/data/social'
         </form>
       </div>
     </section>
+    <footer class='parent'>
+      <div class='parent-container flex flex-col gap-y-12'>
+        <div class='child pb-8 border-b border-slate-300'>
+          <div class='flex flex-col gap-y-4 col-start-1 col-end-4'>
+            <a href="/" class='flex items-center'>
+              <Logo />
+              <LogoText />
+            </a>
+            <Text className='text-slate-400'>2022 Velandia Abogados, Inc.</Text>
+          </div>
+          <ul class='col-start-5 col-end-11 flex items-start justify-between'>
+            {
+              footer.map(({ items, title, to }) => (
+                <li class='flex flex-col gap-y-5'>
+                  <Title as={'h3'} size={'xs'} className='hover:underline'>
+                    <a href={to}>{title}</a>
+                  </Title>
+                  <ul class='flex flex-col gap-y-2 font-semibold'>
+                    {items.map(({ title, to }) => (
+                      <li class='before:content-["•"] before:text-xl flex items-center gap-x-2 text-slate-400'>
+                        <Text className='hover:underline text-sm text-slate-400'>
+                          <a href={to}>{title}</a>
+                        </Text>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        <span class='text-slate-400 text-sm text-center'
+          >Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
+          purus sit amet luctus venenatis, lectus magna fringilla urna,
+          porttitor rhoncus dolor purus non enim praesent elementum facilisis
+          leo, vel fringilla est.</span
+        >
+      </div>
+    </footer>
   </body>
 </html>
