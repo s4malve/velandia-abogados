@@ -3,9 +3,9 @@ import Logo from '@/components/Logo.astro'
 import LogoText from '@/components/LogoText.astro'
 import NavLinks from '@/components/NavLinks.astro'
 import Button from '@/components/Button.astro'
+import Title from '@/components/Title'
 
 import { links } from '@/data/nav'
-import Title from './Title.astro'
 
 interface Props {
   title: string
@@ -28,7 +28,7 @@ const { title, img, alt } = Astro.props as Props
     </nav>
     <div class='child'>
       <div class='col-start-1 col-end-5 flex flex-col gap-y-4'>
-        <Title as='h1' theme='dark'>
+        <Title as={'h1'} size={'lg'} theme='dark'>
           {title}
         </Title>
         <slot />
