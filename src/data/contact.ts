@@ -1,5 +1,5 @@
 import Whatsapp from '@/components/icons/Whatsapp.astro'
-import Gmail from '@/components/icons/Gmail.astro'
+import Gmail from '@/components/icons/Gmail'
 import Location from '@/components/icons/Location.astro'
 
 export default [
