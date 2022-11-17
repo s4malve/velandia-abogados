@@ -4,7 +4,7 @@
 
 @layer base {
   .parent {
-    @apply grid grid-cols-[repeat(12,1fr)] gap-x-8 py-12;
+    @apply grid grid-cols-[repeat(12,1fr)] gap-x-8 py-12 scroll-m-12;
   }
 
   .parent-container {
