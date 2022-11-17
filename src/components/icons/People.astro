@@ -1,6 +1,19 @@
+---
+interface Props {
+  size?: keyof typeof sizes
+}
+
+const sizes = {
+  md: 32,
+  sm: 18
+}
+
+const { size = 'md' } = Astro.props as Props
+---
+
 <svg
-  width='32'
-  height='32'
+  width={sizes[size]}
+  height={sizes[size]}
   viewBox='0 0 32 32'
   fill='currentColor'
   xmlns='http://www.w3.org/2000/svg'
