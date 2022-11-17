@@ -151,13 +151,14 @@ import Title from '@/components/Title'
         <ul class='child items-stretch grid-rows-2 gap-y-6'>
           {
             buffetData.map(({ active, className, content }) => {
+              const cardTheme = active ? 'dark' : 'light'
+              const iconActive = active ? 'text-pink-900' : ''
+
               return (
                 <li class={className}>
-                  <Card theme={active ? 'dark' : 'light'} content={content}>
+                  <Card theme={cardTheme} content={content}>
                     <div
-                      class={`p-3 rounded-full bg-slate-100 w-fit ${
-                        active ? 'text-pink-900' : ''
-                      }`}
+                      class={`p-3 rounded-full bg-slate-100 w-fit ${iconActive}`}
                       slot='icon'
                     >
                       <Check />
