@@ -1,0 +1,37 @@
+---
+import Text from './Text.astro'
+import Title from './Title'
+
+interface Props {
+  comment: string
+  author: {
+    name: string
+    position: string
+    company: string
+  }
+}
+
+const {
+  author: { company, name, position },
+  comment
+} = Astro.props as Props
+---
+
+<article class='grid gap-y-4 p-8 rounded-xl shadow-lg shadow-slate-300'>
+  <Text className={`before:content-['“'] after:content-['”']`}>
+    {comment}
+  </Text>
+  <footer class='flex items-center justify-between gap-y-6'>
+    <div class='grid gap-y-2'>
+      <Title as={'h3'} size={'xs'}>
+        {name}
+      </Title>
+      <Text>
+        {position}
+      </Text>
+    </div>
+    <Text>
+      {company}
+    </Text>
+  </footer>
+</article>
