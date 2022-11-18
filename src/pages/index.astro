@@ -312,7 +312,9 @@ import footer from '@/data/footer'
                   </Title>
                   <ul class='flex flex-col gap-y-2 font-semibold'>
                     {items.map(({ title, to }) => (
-                      <li class='before:content-["•"] before:text-xl flex items-center gap-x-2 text-slate-400'>
+                      <li
+                        class={`before:content-["•"] before:text-xl flex items-center gap-x-2 text-slate-400`}
+                      >
                         <Text className='hover:underline text-sm text-slate-400'>
                           <a href={to}>{title}</a>
                         </Text>
