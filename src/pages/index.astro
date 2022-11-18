@@ -212,27 +212,50 @@ import footer from '@/data/footer'
               atenderemos. También nos puedes encontrar en nuestros canales:</Text
             >
           </div>
-          <ul class='grid gap-y-8'>
+          <ul>
             {
-              contact.map(({ content, icon }) => {
+              contact.map(({ content, icon, to }) => {
                 const Icon = icon
+                const itemStyles =
+                  'flex items-center gap-x-3 text-slate-100 p-4'
                 return (
-                  <li class='flex items-center gap-x-3 text-slate-100'>
-                    <Icon />
-                    <span class='font-semibold'>{content}</span>
+                  <li>
+                    {to ? (
+                      <a
+                        href={to}
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        class={`${itemStyles} rounded-xl hover:bg-pink-800 active:bg-pink-700 w-fit`}
+                      >
+                        <Icon />
+                        <span class='font-semibold'>{content}</span>
+                      </a>
+                    ) : (
+                      <div class={itemStyles}>
+                        <Icon />
+                        <span class='font-semibold'>{content}</span>
+                      </div>
+                    )}
                   </li>
                 )
               })
             }
           </ul>
           <footer class='grid justify-items-center text-slate-100'>
-            <ul class='flex items-center gap-x-8'>
+            <ul class='flex items-center gap-x-4 h-fit'>
               {
-                social.map(({ icon }) => {
+                social.map(({ icon, to }) => {
                   const Icon = icon
                   return (
                     <li>
-                      <Icon />
+                      <a
+                        href={to}
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        class='inline-block hover:bg-pink-800 active:bg-pink-700 p-3 rounded-full'
+                      >
+                        <Icon />
+                      </a>
                     </li>
                   )
                 })
