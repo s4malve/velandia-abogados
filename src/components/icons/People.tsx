@@ -1,13 +1,8 @@
-interface Props {
-  size?: keyof typeof sizes
-}
+import type Icon from '@/types/icon'
 
-const sizes = {
-  md: 32,
-  sm: 18
-}
+import sizes from '@/utils/iconSize'
 
-export default function People({ size = 'md' }: Props) {
+export default function People({ size = 'md' }: Icon) {
   return (
     <svg
       width={sizes[size]}

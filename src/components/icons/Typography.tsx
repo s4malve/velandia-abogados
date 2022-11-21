@@ -1,8 +1,11 @@
-export default () => (
+import type Icon from '@/types/icon'
+import sizes from '@/utils/iconSize'
+
+export default ({ size = 'md' }: Icon) => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
-    width={24}
-    height={24}
+    width={sizes[size]}
+    height={sizes[size]}
     viewBox='0 0 24 24'
     xmlSpace='preserve'
   >
