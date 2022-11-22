@@ -1,6 +1,5 @@
 import type TContactForm from '@/types/contactForm'
 
-import { useState } from 'react'
 import { FieldError, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 
@@ -17,10 +16,12 @@ import Exclamation from '@/components/icons/Exclamation'
 
 import ContactFormSchema from '@/schema/contactForm'
 import sendMessage from '@/api/sendMessage'
+import useButtonStatus from '@/hooks/useButtonStatus'
+import useStatus from '@/hooks/useStatus'
 
-type MessageStatus = 'secondary' | 'loading' | 'error' | 'success'
 export default function ContactForm() {
-  const [messageStatus, setMessageStatus] = useState<MessageStatus>('secondary')
+  const { buttonStatus, setButtonStatus } = useButtonStatus()
+  const { setData, setEndLoading, setError, setStartLoading } = useStatus()
   const {
     register,
     handleSubmit,
@@ -30,12 +31,30 @@ export default function ContactForm() {
   })
 
   const onSubmit = handleSubmit(async (contactForm) => {
-    const { data, loading, error } = await sendMessage(contactForm)
+    try {
+      setButtonStatus('loading')
+      setStartLoading()
 
-    if (!data && !loading && !error) setMessageStatus('secondary')
-    else if (!data && loading) setMessageStatus('loading')
-    else if (data && !loading && !error) setMessageStatus('success')
-    else if (!data && !loading && error) setMessageStatus('error')
+      const res = await sendMessage(contactForm)
+
+      if (res.ok) {
+        const data = await res.json()
+        setButtonStatus('success')
+        setData(data)
+
+        return
+      }
+
+      const error = await Promise.reject(res)
+
+      setError(error)
+      return
+    } catch (error) {
+      setButtonStatus('error')
+      setError(error as string)
+    } finally {
+      setEndLoading()
+    }
   })
 
   return (
@@ -75,28 +94,28 @@ export default function ContactForm() {
       />
       <Button
         type='submit'
-        disabled={messageStatus === 'loading' || messageStatus === 'success'}
-        variant={messageStatus}
+        disabled={buttonStatus === 'loading' || buttonStatus === 'success'}
+        variant={buttonStatus}
         size='lg'
       >
-        {messageStatus === 'secondary' && (
+        {buttonStatus === 'secondary' && (
           <>
             <PaperPlane size='sm' /> Escríbenos{' '}
           </>
         )}
-        {messageStatus === 'error' && (
+        {buttonStatus === 'error' && (
           <>
             <Exclamation size='sm' />
             An error occured
           </>
         )}
-        {messageStatus === 'loading' && (
+        {buttonStatus === 'loading' && (
           <>
             <LoadingSping size='sm' className='animate-spin' />
             Enviando mensaje...
           </>
         )}
-        {messageStatus === 'success' && (
+        {buttonStatus === 'success' && (
           <>
             <Check size='sm' />
             Mensaje Enviado
