@@ -1,13 +1,17 @@
 import { createElement } from 'react'
 import type Icon from '@/types/icon'
 import type { FC, HtmlHTMLAttributes, HTMLInputTypeAttribute } from 'react'
-import type { FieldError } from 'react-hook-form'
+import type { FieldError, UseFormRegister } from 'react-hook-form'
+import type TContactForm from '@/types/contactForm'
 
 interface InputProps extends HtmlHTMLAttributes<HTMLInputElement> {
   as?: 'input' | 'textarea'
   label: string
   icon?: FC<Icon>
   type?: HTMLInputTypeAttribute
+  register: UseFormRegister<TContactForm>
+  name: keyof TContactForm
+  required?: boolean
   error?: FieldError
 }
 
@@ -18,6 +22,9 @@ export default function Input({
   error,
   icon: Icon,
   as = 'input',
+  register,
+  name,
+  required,
   ...restOfProps
 }: InputProps) {
   const textAreaStyles = as === 'textarea' ? 'items-start' : 'items-center'
@@ -40,6 +47,7 @@ export default function Input({
           placeholder,
           className:
             'bg-transparent text-slate-100 outline-none resize-y w-full max-h-[240px]',
+          ...register(name, { required }),
           ...restOfProps
         })}
       </div>
