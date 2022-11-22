@@ -1,8 +1,7 @@
 import type { APIContext } from 'astro'
 
-import { ContactFormSchema } from '@/components/ContactForm'
-
 import { sendEmail } from '@/services/sendinblue'
+import ContactFormSchema from '@/schema/contactForm'
 
 export async function post({ request }: APIContext) {
   const { headers } = request
