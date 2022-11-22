@@ -1,4 +1,3 @@
-import type { TContactForm } from '@/components/ContactForm'
 import SibApiV3Sdk from 'sib-api-v3-typescript'
 
 export async function sendEmail(sendSmtpEmail: SibApiV3Sdk.SendSmtpEmail) {
