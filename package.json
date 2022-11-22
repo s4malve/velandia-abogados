@@ -13,6 +13,7 @@
   "dependencies": {
     "@astrojs/react": "^1.2.2",
     "@astrojs/tailwind": "^2.0.2",
+    "@astrojs/vercel": "^2.3.4",
     "@hookform/resolvers": "2.9.10",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.9",
