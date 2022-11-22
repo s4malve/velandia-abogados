@@ -1,7 +1,7 @@
 import type TContactForm from '@/types/contactForm'
 
-export default async function sendMessage(contactForm: TContactForm) {
-  return await fetch('/send-message', {
+export default function sendMessage(contactForm: TContactForm) {
+  return fetch('/send-message', {
     method: 'POST',
     body: JSON.stringify(contactForm),
     headers: { 'Content-Type': 'application/json' }
