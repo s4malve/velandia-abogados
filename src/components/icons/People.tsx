@@ -2,9 +2,10 @@ import type Icon from '@/types/icon'
 
 import sizes from '@/utils/iconSize'
 
-export default function People({ size = 'md' }: Icon) {
+export default function People({ size = 'md', className }: Icon) {
   return (
     <svg
+      className={className}
       width={sizes[size]}
       height={sizes[size]}
       viewBox='0 0 32 32'

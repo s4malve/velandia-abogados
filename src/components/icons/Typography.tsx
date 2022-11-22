@@ -1,8 +1,10 @@
 import type Icon from '@/types/icon'
+
 import sizes from '@/utils/iconSize'
 
-export default ({ size = 'md' }: Icon) => (
+export default ({ size = 'md', className }: Icon) => (
   <svg
+    className={className}
     xmlns='http://www.w3.org/2000/svg'
     width={sizes[size]}
     height={sizes[size]}

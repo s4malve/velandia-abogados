@@ -1,7 +1,12 @@
-export default () => (
+import type Icon from '@/types/icon'
+
+import sizes from '@/utils/iconSize'
+
+export default ({ className, size = 'md' }: Icon) => (
   <svg
-    width='24'
-    height='24'
+    className={className}
+    width={sizes[size]}
+    height={sizes[size]}
     viewBox='0 0 24 24'
     fill='currentColor'
     xmlns='http://www.w3.org/2000/svg'
