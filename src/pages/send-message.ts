@@ -21,5 +21,12 @@ export async function post({ request }: APIContext) {
     } catch (error) {
       return new Response(JSON.stringify(error), { status: 400 })
     }
+  } else {
+    return new Response(
+      JSON.stringify({
+        message: 'You must add an application/json content type'
+      }),
+      { status: 400 }
+    )
   }
 }
