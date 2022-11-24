@@ -1,5 +1,6 @@
 import type TContactForm from '@/types/contactForm'
 
+import { useEffect } from 'react'
 import { FieldError, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 
@@ -25,7 +26,8 @@ export default function ContactForm() {
   const {
     register,
     handleSubmit,
-    formState: { errors }
+    reset,
+    formState: { errors, isSubmitSuccessful }
   } = useForm<TContactForm>({
     resolver: zodResolver(ContactFormSchema)
   })
@@ -56,6 +58,12 @@ export default function ContactForm() {
       setEndLoading()
     }
   })
+
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset({ email: '', message: '', name: '' })
+    }
+  }, [isSubmitSuccessful])
 
   return (
     <form
