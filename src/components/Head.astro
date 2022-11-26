@@ -1,0 +1,60 @@
+---
+import comingImg from '/coming-image.png'
+
+export interface HeadProps {
+  title?: string
+  url?: string
+  description?: string
+}
+
+const { origin } = Astro.url
+const { description, title, url } = Astro.props as HeadProps
+const comingTitle = `Velandia Abogados | ${
+    title || 'Más de 20 años de Experiencia de Derecho de familia.'
+  }`,
+  comingUrl = `${origin}/${url}` || origin,
+  comingDescription =
+    description ||
+    'Buffet Especializado en derecho de familia. Nuestra misión es llevar justicia y proteger tus interes, sin dañar lo que mas te importa en el proceso.'
+---
+
+<!-- Primary Meta Tags -->
+<title>{comingTitle}</title>
+<link rel='icon' href='/favicon/favicon.ico' type='image/x-icon' />
+<link
+  rel='apple-touch-icon'
+  sizes='180x180'
+  href='/favicon/apple-touch-icon.png'
+/>
+<link
+  rel='icon'
+  type='image/png'
+  sizes='32x32'
+  href='/favicon/favicon-32x32.png'
+/>
+<link
+  rel='icon'
+  type='image/png'
+  sizes='16x16'
+  href='/favicon/favicon-16x16.png'
+/>
+<meta charset='UTF-8' />
+<meta name='viewport' content='width=device-width' />
+<meta name='title' content={comingTitle} />
+<meta name='description' content={comingDescription} />
+<meta name='generator' content={Astro.generator} />
+
+<!-- Open Graph / Facebook -->
+<meta property='og:type' content='website' />
+<meta property='og:url' content={comingUrl} />
+<meta property='og:title' content={comingTitle} />
+<meta property='og:description' content={comingDescription} />
+<meta property='og:image' content={comingImg} />
+<meta property='og:locale' content='es_ES' />
+
+<!-- Twitter -->
+<meta property='twitter:card' content='summary_large_image' />
+<meta property='twitter:url' content={comingUrl} />
+<meta property='twitter:title' content={comingTitle} />
+<meta property='twitter:description' content={comingDescription} />
+<meta property='twitter:image' content={comingImg} />
