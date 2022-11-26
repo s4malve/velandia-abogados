@@ -17,6 +17,8 @@ import Logo from '@/components/Logo.astro'
 import LogoText from '@/components/LogoText.astro'
 import ContactForm from '@/components/ContactForm'
 
+import Layout from '@/layouts/Layout.astro'
+
 import buffetData from '@/data/buffet-data'
 import comments from '@/data/comments'
 import contact from '@/data/contact'
@@ -24,288 +26,276 @@ import social from '@/data/social'
 import footer from '@/data/footer'
 ---
 
-<!DOCTYPE html>
-<html lang='es' class='scroll-smooth'>
-  <head>
-    <meta charset='UTF-8' />
-    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-    <title>Inicio | Velandia Abogados</title>
-  </head>
-  <body
-    class='flex flex-col gap-y-6 p-2 text-slate-900 bg-slate-100 selection:bg-sky-200'
+<Layout>
+  <Header
+    title='Protegemos lo que más te importa.'
+    img='https://images.unsplash.com/photo-1611516818236-8faa056fb659?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
+    alt='Family reuned'
   >
-    <Header
-      title='Protegemos lo que más te importa.'
-      img='https://images.unsplash.com/photo-1611516818236-8faa056fb659?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
-      alt='Family reuned'
-    >
-      <Text theme='dark'>
-        Somos un buffet. Especializado en <Link href='/'
-          >derecho de familia</Link
-        >. Nuestra misión es ver a cada persona que está detras de cada proceso
-        y proteger sus interes, sin dañar lo que mas te importa en el proceso, y
-        basamos nuestra mentalidad en ello.
-      </Text>
-      <Button href='/' as='a' fit>Escríbenos</Button>
-    </Header>
-    <section class='parent'>
-      <div class='parent-container flex flex-col gap-y-8'>
-        <div class='child'>
-          <Title
-            as='h1'
-            size={'lg'}
-            theme='light'
-            className='col-start-1 col-end-5'
-            >Protegemos lo que más te importa.</Title
+    <Text theme='dark'>
+      Somos un buffet. Especializado en <Link href='/'>derecho de familia</Link
+      >. Nuestra misión es ver a cada persona que está detras de cada proceso y
+      proteger sus interes, sin dañar lo que mas te importa en el proceso, y
+      basamos nuestra mentalidad en ello.
+    </Text>
+    <Button href='/' as='a' fit>Escríbenos</Button>
+  </Header>
+  <section class='parent'>
+    <div class='parent-container flex flex-col gap-y-8'>
+      <div class='child'>
+        <Title
+          as='h1'
+          size={'lg'}
+          theme='light'
+          className='col-start-1 col-end-5'
+          >Protegemos lo que más te importa.</Title
+        >
+        <Text className='col-start-7 col-end-11 2xl:col-end-12'>
+          Haciendo que tu voz sea escuchada, y tus derechos sean protegidos.
+        </Text>
+      </div>
+      <ul class='flex items-center justify-between'>
+        <li>
+          <Card
+            title='Siendo humanos'
+            content='Viendo que detras de cada proceso hay una persona, que quiere hacerce oir.'
+            theme={'light'}
           >
-          <Text className='col-start-7 col-end-11 2xl:col-end-12'>
-            Haciendo que tu voz sea escuchada, y tus derechos sean protegidos.
+            <People size='lg' slot='icon' />
+          </Card>
+        </li>
+        <li>
+          <Card
+            title='Siendo humanos'
+            content='Viendo que detras de cada proceso hay una persona, que quiere hacerce oir.'
+          >
+            <Shield slot='icon' />
+          </Card>
+        </li>
+        <li>
+          <Card
+            title='Siendo humanos'
+            content='Viendo que detras de cada proceso hay una persona, que quiere hacerce oir.'
+          >
+            <GroupAdd slot='icon' />
+          </Card>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section class='parent' id='sobre-nosotros'>
+    <div class='parent-container child'>
+      <div class='col-start-1 col-end-5 relative w-fit'>
+        <div
+          class='absolute top-[127px] shadow-md shadow-slate-900/20 -left-6 z-10 p-4 rounded-full bg-slate-100'
+        >
+          <img src='/paper.png' alt='' class='w-8 h-8' />
+        </div>
+        <div
+          class='absolute top-[50px] shadow-md shadow-slate-900/20 -right-[38px] z-10 p-4 rounded-xl bg-slate-100'
+        >
+          <img src='/laptop.png' alt='' class='w-8 h-8' />
+        </div>
+        <Image
+          src='https://images.unsplash.com/photo-1609220136736-443140cffec6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
+          className=''
+          alt='Father with their childs'
+        />
+        <div
+          class='absolute -bottom-[31px] shadow-md shadow-slate-900/20 inset-x-0 mx-auto w-fit z-10 p-4 rounded-xl bg-slate-100'
+        >
+          <img src='/clock.png' alt='' class='w-8 h-8' />
+        </div>
+      </div>
+      <div class='col-start-7 col-end-11 grid gap-y-8'>
+        <Title as='h2'>¿Qué es Velandia Abogados?</Title>
+        <div class='grid gap-y-6'>
+          <Text>
+            En Velandia Abogados somos una firma que lleva más de 18 años
+            trabajando en conjunto con los mejores abogados en todo lo
+            relacionado a Familia, Civil y Administrativo.
+          </Text>
+          <Text>
+            En Velandia Abogados somos una firma que lleva más de 18 años
+            trabajando en conjunto con los mejores abogados en todo lo
+            relacionado a Familia, Civil y Administrativo.
           </Text>
         </div>
-        <ul class='flex items-center justify-between'>
-          <li>
-            <Card
-              title='Siendo humanos'
-              content='Viendo que detras de cada proceso hay una persona, que quiere hacerce oir.'
-              theme={'light'}
-            >
-              <People size='lg' slot='icon' />
-            </Card>
-          </li>
-          <li>
-            <Card
-              title='Siendo humanos'
-              content='Viendo que detras de cada proceso hay una persona, que quiere hacerce oir.'
-            >
-              <Shield slot='icon' />
-            </Card>
-          </li>
-          <li>
-            <Card
-              title='Siendo humanos'
-              content='Viendo que detras de cada proceso hay una persona, que quiere hacerce oir.'
-            >
-              <GroupAdd slot='icon' />
-            </Card>
-          </li>
-        </ul>
       </div>
-    </section>
-    <section class='parent' id='sobre-nosotros'>
-      <div class='parent-container child'>
-        <div class='col-start-1 col-end-5 relative w-fit'>
-          <div
-            class='absolute top-[127px] shadow-md shadow-slate-900/20 -left-6 z-10 p-4 rounded-full bg-slate-100'
-          >
-            <img src='/paper.png' alt='' class='w-8 h-8' />
-          </div>
-          <div
-            class='absolute top-[50px] shadow-md shadow-slate-900/20 -right-[38px] z-10 p-4 rounded-xl bg-slate-100'
-          >
-            <img src='/laptop.png' alt='' class='w-8 h-8' />
-          </div>
-          <Image
-            src='https://images.unsplash.com/photo-1609220136736-443140cffec6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
-            className=''
-            alt='Father with their childs'
-          />
-          <div
-            class='absolute -bottom-[31px] shadow-md shadow-slate-900/20 inset-x-0 mx-auto w-fit z-10 p-4 rounded-xl bg-slate-100'
-          >
-            <img src='/clock.png' alt='' class='w-8 h-8' />
-          </div>
-        </div>
-        <div class='col-start-7 col-end-11 grid gap-y-8'>
-          <Title as='h2'>¿Qué es Velandia Abogados?</Title>
-          <div class='grid gap-y-6'>
-            <Text>
-              En Velandia Abogados somos una firma que lleva más de 18 años
-              trabajando en conjunto con los mejores abogados en todo lo
-              relacionado a Familia, Civil y Administrativo.
-            </Text>
-            <Text>
-              En Velandia Abogados somos una firma que lleva más de 18 años
-              trabajando en conjunto con los mejores abogados en todo lo
-              relacionado a Familia, Civil y Administrativo.
-            </Text>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class='parent overflow-hidden py-0'>
-      <div class='parent-container child rounded-xl bg-slate-900 relative'>
-        <div class='col-start-2 col-end-6 py-14'>
-          <Text as='span' theme='dark'>Contáctanos</Text>
-          <Title as='h2' theme='dark' className='text-slate-100 mb-6'
-            >¿Qué esperas para tomar el control?</Title
-          >
-          <Button as='a' href='' fit>Contáctanos</Button>
-        </div>
-        <figure
-          class='col-start-7 col-end-10 lg:col-auto lg:absolute lg:right-24 lg:top-12'
+    </div>
+  </section>
+  <section class='parent overflow-hidden py-0'>
+    <div class='parent-container child rounded-xl bg-slate-900 relative'>
+      <div class='col-start-2 col-end-6 py-14'>
+        <Text as='span' theme='dark'>Contáctanos</Text>
+        <Title as='h2' theme='dark' className='text-slate-100 mb-6'
+          >¿Qué esperas para tomar el control?</Title
         >
-          <img
-            src='/chat-example.png'
-            alt=''
-            class='w-full max-w-[287px] object-contain'
-          />
-        </figure>
+        <Button as='a' href='' fit>Contáctanos</Button>
       </div>
-    </section>
-    <section class='parent'>
-      <div class='parent-container gap-y-8 grid'>
-        <div class='grid gap-y-2'>
-          <Title as={'h2'}>Que dicen los datos</Title>
-          <Text>¿No estas muy convencido? deja que los datos hablen.</Text>
+      <figure
+        class='col-start-7 col-end-10 lg:col-auto lg:absolute lg:right-24 lg:top-12'
+      >
+        <img
+          src='/chat-example.png'
+          alt=''
+          class='w-full max-w-[287px] object-contain'
+        />
+      </figure>
+    </div>
+  </section>
+  <section class='parent'>
+    <div class='parent-container gap-y-8 grid'>
+      <div class='grid gap-y-2'>
+        <Title as={'h2'}>Que dicen los datos</Title>
+        <Text>¿No estas muy convencido? deja que los datos hablen.</Text>
+      </div>
+
+      <ul class='child items-stretch grid-rows-2 gap-y-6'>
+        {
+          buffetData.map(({ active, className, content }) => {
+            const cardTheme = active ? 'dark' : 'light'
+            const iconActive = active ? 'text-pink-900' : ''
+
+            return (
+              <li class={className}>
+                <Card theme={cardTheme} content={content}>
+                  <div
+                    class={`p-3 rounded-full bg-slate-100 w-fit ${iconActive}`}
+                    slot='icon'
+                  >
+                    <Check size='lg' />
+                  </div>
+                </Card>
+              </li>
+            )
+          })
+        }
+      </ul>
+    </div>
+  </section>
+  <section class='parent'>
+    <div class='parent-container child'>
+      <div class='col-start-1 col-end-4'>
+        <Text as={'span'}>Testimonios</Text>
+        <Title as={'h2'}>Que dicen los que confiaron en nosotros</Title>
+      </div>
+      <ul class='col-start-6 col-end-11 grid grid-cols-[repeat(6,1fr)]'>
+        {
+          comments.map(({ author, comment }) => (
+            <li class='col-start-2 col-end-6'>
+              <Comment author={author} comment={comment} />
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+  <section class='parent rounded-xl bg-slate-900 mt-28'>
+    <div class='parent-container child items-start relative'>
+      <article
+        class='col-start-1 col-end-6 rounded-xl bg-pink-900 p-12 flex flex-col justify-between gap-y-8 min-h-[570px] absolute -top-28'
+        id='contactanos'
+      >
+        <div class='flex flex-col gap-y-4'>
+          <Title theme={'dark'}>¿Tienes alguna duda?</Title>
+          <Text theme={'dark'}
+            >Escribenos un correo y detallanos tu problema, con gusto te
+            atenderemos. También nos puedes encontrar en nuestros canales:</Text
+          >
         </div>
-
-        <ul class='child items-stretch grid-rows-2 gap-y-6'>
+        <ul>
           {
-            buffetData.map(({ active, className, content }) => {
-              const cardTheme = active ? 'dark' : 'light'
-              const iconActive = active ? 'text-pink-900' : ''
-
+            contact.map(({ content, icon, to }) => {
+              const Icon = icon
+              const itemStyles = 'flex items-center gap-x-3 text-slate-100 p-4'
               return (
-                <li class={className}>
-                  <Card theme={cardTheme} content={content}>
-                    <div
-                      class={`p-3 rounded-full bg-slate-100 w-fit ${iconActive}`}
-                      slot='icon'
+                <li>
+                  {to ? (
+                    <a
+                      href={to}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      class={`${itemStyles} rounded-xl hover:bg-pink-800 active:bg-pink-700 w-fit`}
                     >
-                      <Check size='lg' />
+                      <Icon />
+                      <span class='font-semibold'>{content}</span>
+                    </a>
+                  ) : (
+                    <div class={itemStyles}>
+                      <Icon />
+                      <span class='font-semibold'>{content}</span>
                     </div>
-                  </Card>
+                  )}
                 </li>
               )
             })
           }
         </ul>
-      </div>
-    </section>
-    <section class='parent'>
-      <div class='parent-container child'>
-        <div class='col-start-1 col-end-4'>
-          <Text as={'span'}>Testimonios</Text>
-          <Title as={'h2'}>Que dicen los que confiaron en nosotros</Title>
-        </div>
-        <ul class='col-start-6 col-end-11 grid grid-cols-[repeat(6,1fr)]'>
-          {
-            comments.map(({ author, comment }) => (
-              <li class='col-start-2 col-end-6'>
-                <Comment author={author} comment={comment} />
-              </li>
-            ))
-          }
-        </ul>
-      </div>
-    </section>
-    <section class='parent rounded-xl bg-slate-900 mt-28'>
-      <div class='parent-container child items-start relative'>
-        <article
-          class='col-start-1 col-end-6 rounded-xl bg-pink-900 p-12 flex flex-col justify-between gap-y-8 min-h-[570px] absolute -top-28'
-          id='contactanos'
-        >
-          <div class='flex flex-col gap-y-4'>
-            <Title theme={'dark'}>¿Tienes alguna duda?</Title>
-            <Text theme={'dark'}
-              >Escribenos un correo y detallanos tu problema, con gusto te
-              atenderemos. También nos puedes encontrar en nuestros canales:</Text
-            >
-          </div>
-          <ul>
+        <footer class='grid justify-items-center text-slate-100'>
+          <ul class='flex items-center gap-x-4 h-fit'>
             {
-              contact.map(({ content, icon, to }) => {
+              social.map(({ icon, to }) => {
                 const Icon = icon
-                const itemStyles =
-                  'flex items-center gap-x-3 text-slate-100 p-4'
                 return (
                   <li>
-                    {to ? (
-                      <a
-                        href={to}
-                        target='_blank'
-                        rel='noopener noreferrer'
-                        class={`${itemStyles} rounded-xl hover:bg-pink-800 active:bg-pink-700 w-fit`}
-                      >
-                        <Icon />
-                        <span class='font-semibold'>{content}</span>
-                      </a>
-                    ) : (
-                      <div class={itemStyles}>
-                        <Icon />
-                        <span class='font-semibold'>{content}</span>
-                      </div>
-                    )}
+                    <a
+                      href={to}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      class='inline-block hover:bg-pink-800 active:bg-pink-700 p-3 rounded-full'
+                    >
+                      <Icon />
+                    </a>
                   </li>
                 )
               })
             }
           </ul>
-          <footer class='grid justify-items-center text-slate-100'>
-            <ul class='flex items-center gap-x-4 h-fit'>
-              {
-                social.map(({ icon, to }) => {
-                  const Icon = icon
-                  return (
-                    <li>
-                      <a
-                        href={to}
-                        target='_blank'
-                        rel='noopener noreferrer'
-                        class='inline-block hover:bg-pink-800 active:bg-pink-700 p-3 rounded-full'
-                      >
-                        <Icon />
-                      </a>
-                    </li>
-                  )
-                })
-              }
-            </ul>
-          </footer>
-        </article>
-        <ContactForm client:visible />
-      </div>
-    </section>
-    <footer class='parent'>
-      <div class='parent-container flex flex-col gap-y-12'>
-        <div class='child pb-8 border-b border-slate-300'>
-          <div class='flex flex-col gap-y-4 col-start-1 col-end-4'>
-            <a href='/' class='flex items-center'>
-              <Logo />
-              <LogoText />
-            </a>
-            <Text className='text-slate-400'>2022 Velandia Abogados, Inc.</Text>
-          </div>
-          <ul class='col-start-5 col-end-11 flex items-start justify-between'>
-            {
-              footer.map(({ items, title, to }) => (
-                <li class='flex flex-col gap-y-5'>
-                  <Title as={'h3'} size={'xs'} className='hover:underline'>
-                    <a href={to}>{title}</a>
-                  </Title>
-                  <ul class='flex flex-col gap-y-2 font-semibold'>
-                    {items.map(({ title, to }) => (
-                      <li
-                        class={`before:content-["•"] before:text-xl flex items-center gap-x-2 text-slate-400`}
-                      >
-                        <Text className='hover:underline text-sm text-slate-400'>
-                          <a href={to}>{title}</a>
-                        </Text>
-                      </li>
-                    ))}
-                  </ul>
-                </li>
-              ))
-            }
-          </ul>
+        </footer>
+      </article>
+      <ContactForm client:visible />
+    </div>
+  </section>
+  <footer class='parent'>
+    <div class='parent-container flex flex-col gap-y-12'>
+      <div class='child pb-8 border-b border-slate-300'>
+        <div class='flex flex-col gap-y-4 col-start-1 col-end-4'>
+          <a href='/' class='flex items-center'>
+            <Logo />
+            <LogoText />
+          </a>
+          <Text className='text-slate-400'>2022 Velandia Abogados, Inc.</Text>
         </div>
-        <span class='text-slate-400 text-sm text-center'
-          >Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
-          purus sit amet luctus venenatis, lectus magna fringilla urna,
-          porttitor rhoncus dolor purus non enim praesent elementum facilisis
-          leo, vel fringilla est.</span
-        >
+        <ul class='col-start-5 col-end-11 flex items-start justify-between'>
+          {
+            footer.map(({ items, title, to }) => (
+              <li class='flex flex-col gap-y-5'>
+                <Title as={'h3'} size={'xs'} className='hover:underline'>
+                  <a href={to}>{title}</a>
+                </Title>
+                <ul class='flex flex-col gap-y-2 font-semibold'>
+                  {items.map(({ title, to }) => (
+                    <li
+                      class={`before:content-["•"] before:text-xl flex items-center gap-x-2 text-slate-400`}
+                    >
+                      <Text className='hover:underline text-sm text-slate-400'>
+                        <a href={to}>{title}</a>
+                      </Text>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ))
+          }
+        </ul>
       </div>
-    </footer>
-  </body>
-</html>
+      <span class='text-slate-400 text-sm text-center'
+        >Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam,
+        purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor
+        rhoncus dolor purus non enim praesent elementum facilisis leo, vel
+        fringilla est.</span
+      >
+    </div>
+  </footer>
+</Layout>
