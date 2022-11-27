@@ -1,6 +1,10 @@
 import { sizes, variants } from '@/data/button'
 import { createElement, ReactNode } from 'react'
 
+const whenExternal = {
+  target: '_blank',
+  rel: 'noopener noreferrer'
+}
 interface Props {
   variant?: keyof typeof variants
   size?: keyof typeof sizes
@@ -9,6 +13,7 @@ interface Props {
   fit?: boolean
   href?: string
   as?: 'button' | 'a'
+  external?: boolean
   disabled?: boolean
   onClick?: () => void
 }
@@ -19,6 +24,7 @@ export default function Button({
   children,
   disabled,
   fit,
+  external,
   type = 'button',
   as = 'button',
   size = 'md',
@@ -29,7 +35,14 @@ export default function Button({
   } ${sizes[size]} ${fit ? 'w-fit' : ''}`
   return createElement(
     as,
-    { type, href, onClick, className, disabled },
+    {
+      type,
+      href,
+      onClick,
+      className,
+      disabled,
+      ...(external && { ...whenExternal })
+    },
     children
   )
 }
