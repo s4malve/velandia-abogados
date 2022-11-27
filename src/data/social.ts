@@ -1,24 +1,24 @@
 import Facebook from '@/components/icons/Facebook.astro'
-import Twitter from '@/components/icons/Twitter.astro'
 import Linkedin from '@/components/icons/Linkedin.astro'
+import Instagram from '@/components/icons/Instagram'
 
 export default [
   {
     icon: Facebook,
     content: 'Facebook',
     name: 'facebook',
-    to: ''
+    to: 'https://web.facebook.com/velandiabogados/'
   },
   {
-    icon: Twitter,
-    content: 'Twitter',
-    name: 'twitter',
-    to: ''
+    icon: Instagram,
+    content: 'Instagram',
+    name: 'instagram',
+    to: 'https://www.instagram.com/luzvelandiasepulveda/'
   },
   {
     icon: Linkedin,
     content: 'Linkedin',
     name: 'linkedin',
-    to: ''
+    to: 'https://www.linkedin.com/in/yovese/'
   }
 ]
