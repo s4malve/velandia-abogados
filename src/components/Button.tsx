@@ -1,10 +1,14 @@
-import { sizes, variants } from '@/data/button'
 import { createElement, ReactNode } from 'react'
+
+import { sizes, variants } from '@/data/button'
+import contact from '@/data/contact'
 
 const whenExternal = {
   target: '_blank',
   rel: 'noopener noreferrer'
 }
+
+const contactUsLink = contact.find(({ name }) => name === 'whatsapp')?.to ?? ''
 interface Props {
   variant?: keyof typeof variants
   size?: keyof typeof sizes
@@ -14,6 +18,7 @@ interface Props {
   href?: string
   as?: 'button' | 'a'
   external?: boolean
+  contactUs?: boolean
   disabled?: boolean
   onClick?: () => void
 }
@@ -25,7 +30,8 @@ export default function Button({
   disabled,
   fit,
   external,
-  type = 'button',
+  contactUs,
+  type,
   as = 'button',
   size = 'md',
   variant = 'primary'
@@ -37,11 +43,11 @@ export default function Button({
     as,
     {
       type,
-      href,
+      href: contactUs ? contactUsLink : href,
       onClick,
       className,
       disabled,
-      ...(external && { ...whenExternal })
+      ...((external || contactUs) && { ...whenExternal })
     },
     children
   )
