@@ -1,4 +1,4 @@
-import { sizes } from '@/data/button'
+import sizes from '@/utils/iconSize'
 
 import type Icon from '@/types/icon'
 
