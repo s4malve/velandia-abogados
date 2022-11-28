@@ -1,4 +1,4 @@
-import sizes from '@/utils/iconSize'
+import sizes from '@/styles/iconSize'
 
 import type Icon from '@/types/icon'
 

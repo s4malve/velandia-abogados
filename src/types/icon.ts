@@ -1,4 +1,4 @@
-import type sizes from '@/utils/iconSize'
+import type sizes from '@/styles/iconSize'
 
 type Icon = {
   size?: keyof typeof sizes

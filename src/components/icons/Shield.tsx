@@ -1,6 +1,6 @@
 import type Icon from '@/types/icon'
 
-import sizes from '@/utils/iconSize'
+import sizes from '@/styles/iconSize'
 
 export default function Shield({ className, size = 'md' }: Icon) {
   return (
