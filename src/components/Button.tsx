@@ -18,6 +18,7 @@ interface Props {
   href?: string
   as?: 'button' | 'a'
   external?: boolean
+  className?: string
   contactUs?: boolean
   disabled?: boolean
   onClick?: () => void
@@ -32,11 +33,12 @@ export default function Button({
   external,
   contactUs,
   type,
+  className,
   as = 'button',
   size = 'md',
   variant = 'primary'
 }: Props) {
-  const className = `rounded-xl font-semibold transition-colors flex gap-x-2 items-center justify-center rounded-xl disabled:cursor-not-allowed ${
+  const styles = `rounded-xl font-semibold transition-colors flex gap-x-2 items-center justify-center rounded-xl disabled:cursor-not-allowed ${
     variants[variant]
   } ${sizes[size]} ${fit ? 'w-fit' : ''}`
   return createElement(
@@ -45,7 +47,7 @@ export default function Button({
       type,
       href: contactUs ? contactUsLink : href,
       onClick,
-      className,
+      className: `${styles} ${className}`,
       disabled,
       ...((external || contactUs) && { ...whenExternal })
     },

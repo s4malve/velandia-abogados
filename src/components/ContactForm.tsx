@@ -20,7 +20,11 @@ import sendMessage from '@/api/sendMessage'
 import useButtonStatus from '@/hooks/useButtonStatus'
 import useStatus from '@/hooks/useStatus'
 
-export default function ContactForm() {
+interface Props {
+  className?: string
+}
+
+export default function ContactForm({ className }: Props) {
   const { buttonStatus, setButtonStatus } = useButtonStatus()
   const { setData, setEndLoading, setError, setStartLoading } = useStatus()
   const {
@@ -66,10 +70,7 @@ export default function ContactForm() {
   }, [isSubmitSuccessful])
 
   return (
-    <form
-      className='col-start-7 col-end-11 flex flex-col gap-y-8'
-      onSubmit={onSubmit}
-    >
+    <form className={className} onSubmit={onSubmit}>
       <Input
         label='nombre'
         placeholder='Luz Velandia'

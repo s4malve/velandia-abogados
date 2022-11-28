@@ -1,12 +1,13 @@
 ---
 interface Props {
   links: Array<{ name: string; path: string }>
+  className?: string
 }
 
-const { links } = Astro.props as Props
+const { links, className } = Astro.props as Props
 ---
 
-<ul class='flex items-center justify-center gap-x-6 font-light'>
+<ul class={`flex items-center justify-center gap-x-6 font-light ${className}`}>
   {
     links.map(({ name, path }) => (
       <li>
