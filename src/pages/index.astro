@@ -5,12 +5,9 @@ import Button from '@/components/Button'
 import Card from '@/components/Card.astro'
 import Check from '@/components/icons/Check'
 import Comment from '@/components/Comment.astro'
-import GroupAdd from '@/components/icons/GroupAdd.astro'
 import Header from '@/components/Header.astro'
 import Image from '@/components/Image.astro'
 import Link from '@/components/Link.astro'
-import People from '@/components/icons/People'
-import Shield from '@/components/icons/Shield.astro'
 import Text from '@/components/Text.astro'
 import Title from '@/components/Title'
 import Logo from '@/components/Logo.astro'
@@ -24,6 +21,7 @@ import comments from '@/data/comments'
 import contact from '@/data/contact'
 import social from '@/data/social'
 import footer from '@/data/footer'
+import benefits from '@/data/benefits'
 ---
 
 <Layout>
@@ -54,32 +52,16 @@ import footer from '@/data/footer'
           Haciendo que tu voz sea escuchada, y tus derechos sean protegidos.
         </Text>
       </div>
-      <ul class='flex items-center justify-between'>
-        <li>
-          <Card
-            title='Siendo humanos'
-            content='Viendo que detras de cada proceso hay una persona, que quiere hacerce oir.'
-            theme={'light'}
-          >
-            <People size='lg' slot='icon' />
-          </Card>
-        </li>
-        <li>
-          <Card
-            title='Siendo humanos'
-            content='Viendo que detras de cada proceso hay una persona, que quiere hacerce oir.'
-          >
-            <Shield slot='icon' />
-          </Card>
-        </li>
-        <li>
-          <Card
-            title='Siendo humanos'
-            content='Viendo que detras de cada proceso hay una persona, que quiere hacerce oir.'
-          >
-            <GroupAdd slot='icon' />
-          </Card>
-        </li>
+      <ul class='flex items-center justify-between flex-wrap'>
+        {
+          benefits.map(({ content, icon: Icon, theme, title }) => (
+            <li>
+              <Card title={title} content={content} theme={theme}>
+                <Icon size='lg' slot='icon' />
+              </Card>
+            </li>
+          ))
+        }
       </ul>
     </div>
   </section>
