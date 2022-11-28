@@ -16,25 +16,34 @@ interface Props {
 const { title, img, alt } = Astro.props as Props
 ---
 
-<header class='rounded-xl bg-slate-900 text-slate-100 w-full parent'>
-  <div class='min-h-[84vh] grid grid-rows-[auto_1fr] parent-container'>
-    <nav class='flex items-center justify-between'>
-      <a href='/' class='flex items-center w-56 hover:text-slate-200'>
-        <Logo />
-        <LogoText />
+<header class='rounded-xl bg-slate-900 text-slate-100 w-full px-3 divisor'>
+  <div
+    class='min-h-[84vh] grid grid-rows-[auto_1fr] parent-container gap-y-16 wrapper'
+  >
+    <nav class='flex items-center justify-between relative'>
+      <a href='/' class='flex items-center lg:w-56 hover:text-slate-200'>
+        <Logo className='h-10 lg:h-full' />
+        <LogoText className='hidden lg:inline-block' />
       </a>
-      <NavLinks links={links} />
-      <Button as='a' contactUs>Escríbenos</Button>
+      <NavLinks links={links} className='hidden lg:flex' />
+      <div class='flex items-center gap-x-4'>
+        <Button as='a' contactUs className='hidden sm:inline-block'
+          >Escríbenos</Button
+        >
+        <button class='flex lg:hidden'>Menú</button>
+      </div>
     </nav>
-    <div class='child'>
-      <div class='col-start-1 col-end-5 flex flex-col gap-y-4'>
-        <Title as={'h1'} size={'lg'} theme='dark'>
+    <div
+      class='flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-y-8 gap-x-8'
+    >
+      <div class='max-w-prose lg:max-w-sm'>
+        <Title as={'h1'} size={'lg'} theme='dark' className='mb-2'>
           {title}
         </Title>
         <slot />
       </div>
       <figure
-        class='relative before:absolute before:inline-block before:bg-gradient-to-tr before:from-slate-900 before:to-slate-800 before:-z-[1] z-[1] before:rounded-tl-[260px] before:-top-4 before:-left-4 before:w-full before:h-full col-start-6 2xl:col-start-7 col-end-12'
+        class='relative before:absolute before:inline-block before:bg-gradient-to-tr before:from-slate-900 before:to-slate-800 before:-z-[1] z-[1] before:rounded-tl-[260px] before:-top-4 before:-left-2 sm:before:-left-4 before:w-full before:h-full row-start-2 col-start-1 col-end-5 lg:col-start-6 2xl:col-start-7 lg:col-end-12 max-w-[30.3125rem]'
       >
         <div
           class='relative before:absolute before:w-full before:h-full before:bg-slate-900/30'
