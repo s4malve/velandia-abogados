@@ -1,6 +1,15 @@
+---
+interface Props {
+  className?: string
+}
+
+const { className } = Astro.props as Props
+---
+
 <svg
   width='75'
   height='54'
+  class={className}
   viewBox='0 0 75 54'
   fill='none'
   xmlns='http://www.w3.org/2000/svg'
