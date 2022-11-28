@@ -14,10 +14,22 @@ const themes = {
 }
 
 const sizes = {
-  xs: 'text-sm',
-  sm: 'text-lg',
-  md: 'text-[32px]',
-  lg: 'text-[40px]'
+  xs: {
+    min: '0.875rem',
+    max: '0.875rem'
+  },
+  sm: {
+    min: '1.125rem',
+    max: '1.125rem'
+  },
+  md: {
+    min: '1.5rem',
+    max: '2rem'
+  },
+  lg: {
+    min: '2rem',
+    max: '2.5rem'
+  }
 }
 
 export default function Title({
@@ -29,7 +41,12 @@ export default function Title({
 }: TitleProps) {
   return createElement(
     as,
-    { className: `font-semibold ${themes[theme]} ${sizes[size]} ${className}` },
+    {
+      style: {
+        fontSize: `clamp(${sizes[size].min},4vw,${sizes[size].max})`
+      },
+      className: `font-semibold ${themes[theme]} ${sizes[size]} ${className}`
+    },
     children
   )
 }
