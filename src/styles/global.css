@@ -3,15 +3,11 @@
 @tailwind utilities;
 
 @layer base {
-  .parent {
-    @apply grid grid-cols-[repeat(12,1fr)] gap-x-8 py-12 scroll-m-12;
+  .wrapper {
+    @apply w-11/12 lg:w-[82.91%] mx-auto;
   }
 
-  .parent-container {
-    @apply col-start-2 col-end-12;
-  }
-
-  .child {
-    @apply grid grid-cols-[repeat(10,1fr)] gap-x-8 items-center;
+  .divisor {
+    @apply py-8 md:py-12 scroll-m-12;
   }
 }
