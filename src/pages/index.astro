@@ -131,14 +131,16 @@ import Comments from '@/components/Comments.astro'
         <Text>¿No estas muy convencido? deja que los datos hablen.</Text>
       </div>
 
-      <ul class='grid grid-cols-[repeat(auto-fill,minmax(287px,1fr))] gap-6'>
+      <ul
+        class='grid grid-cols-[repeat(auto-fill,minmax(287px,1fr))] lg:grid-cols-[repeat(auto-fill,minmax(394px,1fr))] gap-6'
+      >
         {
           buffetData.map(({ active, content }) => {
             const cardTheme = active ? 'dark' : 'light'
             const iconActive = active ? 'text-pink-900' : ''
 
             return (
-              <li>
+              <li class={active ? 'lg:max-w-sm' : ''}>
                 <Card theme={cardTheme} content={content}>
                   <div
                     class={`p-3 rounded-full bg-slate-100 w-fit ${iconActive}`}
