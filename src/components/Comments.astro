@@ -1,0 +1,59 @@
+---
+import type { CommentProps } from './Comment.astro'
+
+import Comment from './Comment.astro'
+
+import ArrowLeft from './icons/ArrowLeft'
+import ArrowRight from './icons/ArrowRight'
+
+interface Props {
+  comments: CommentProps[]
+}
+
+const { comments } = Astro.props as Props
+---
+
+<script>
+  import Swiper, { EffectCards, Navigation } from 'swiper'
+
+  import 'swiper/css'
+  import 'swiper/css/effect-cards'
+
+  const swiper = new Swiper('.swiper', {
+    modules: [EffectCards, Navigation],
+    direction: 'vertical',
+    grabCursor: true,
+    effect: 'cards',
+    loop: true,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    }
+  })
+</script>
+
+<div class='flex flex-col lg:flex-row items-center gap-y-12 gap-x-6'>
+  <div class='swiper w-full lg:max-w-md h-72 sm:h-64'>
+    <div class='swiper-wrapper'>
+      {
+        comments.map(({ comment, author }) => (
+          <Comment
+            className='swiper-slide min-h-[256px] h-fit'
+            comment={comment}
+            author={author}
+          />
+        ))
+      }
+    </div>
+  </div>
+  <div
+    class='lg:self-end flex lg:flex-col gap-4 [&_button]:rounded-full [&_button]:transition-colors [&_button:hover]:bg-slate-900 [&_button:hover]:text-slate-100 [&_button]:grid [&_button]:place-content-center [&_button]:p-2 [&_button]:border [&_button]:border-slate-900 [&_button:active]:bg-slate-800'
+  >
+    <button class='lg:rotate-90 swiper-button-prev'>
+      <ArrowLeft size='sm' />
+    </button>
+    <button class='lg:rotate-90 swiper-button-next'>
+      <ArrowRight size='sm' />
+    </button>
+  </div>
+</div>
