@@ -22,6 +22,7 @@ import contact from '@/data/contact'
 import social from '@/data/social'
 import footer from '@/data/footer'
 import benefits from '@/data/benefits'
+import Comments from '@/components/Comments.astro'
 ---
 
 <Layout>
@@ -156,23 +157,17 @@ import benefits from '@/data/benefits'
   <section
     class='divisor wrapper flex items-center justify-between flex-wrap gap-8'
   >
-    <div class='md:basis-5/12'>
+    <div class='basis-full lg:basis-4/12'>
       <Text as={'span'}>Testimonios</Text>
       <Title as={'h2'}>Que dicen los que confiaron en nosotros</Title>
     </div>
-    <ul class='basis-full md:basis-6/12'>
-      {
-        comments.map(({ author, comment }) => (
-          <li class='col-start-2 col-end-26'>
-            <Comment author={author} comment={comment} />
-          </li>
-        ))
-      }
-    </ul>
+    <Comments comments={comments} />
   </section>
-  <section class='rounded-xl bg-slate-900 mt-28 pb-12 px-4 form:p-12'>
+  <section
+    class='rounded-xl bg-slate-900 mt-28 pb-12 px-4 form:py-12 form:px-16 xl:px-16 2xl:px-36'
+  >
     <div
-      class='relative flex flex-col form:flex-row items-center gap-y-12 justify-end'
+      class='relative flex flex-col xl:flex-row items-center gap-y-12 justify-end w-full'
     >
       <article
         class='flex max-w-lg rounded-xl bg-pink-900 px-8 py-12 lg:px-12 flex-col justify-between gap-y-8 min-h-[570px] form:absolute -top-28 inset-x-0 mx-auto form:left-0 -mt-16 form:mt-0 form:mx-0'
